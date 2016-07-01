@@ -83,41 +83,49 @@ function textProcess(file){
     var i=0;
     for(;i<splited.length;i++){
        
-        var childNode=document.createElement("li");
-        childNode.innerHTML=splited[i];
-  
-        childNode.ondblclick=function(){
+        var liLiNode=document.createElement("li");
+        var textNode=document.createElement("p");
+        var closeButton=document.createElement("img");
+        textNode.innerHTML=splited[i];
+        textNode.className="textInLi";
+        liLiNode.className="ui-widget-content";
+        liLiNode.style.overflow="scroll";
+        // closeButton.scr="img/closeButton";
+        // closeButton.className="closeButton";
+
+        textNode.ondblclick=function(){
           this.setAttribute("contenteditable","true");
         };
-        childNode.onkeypress=function(){
+        textNode.onkeypress=function(){
           if(this.onkeypress.arguments[0].charCode == 13){
             this.setAttribute("contenteditable","false");
           } 
         }
-        childNode.className="ui-widget-content";
-        parentNode.appendChild(childNode);
-    }
 
-  
+        // liLiNode.appendChild(closeButton);
+        liLiNode.appendChild(textNode);
+        parentNode.appendChild(liLiNode);
+
+  }
 }
 
 function addTextElement(){
         var parentNode=document.getElementById("selectable");
-        var childNode=document.createElement("li");
-
-        childNode.innerHTML="please input texts";
-        
-        childNode.ondblclick=function(){
+        var liLiNode=document.createElement("li");
+        var textNode=document.createElement("p");
+        textNode.innerHTML="please input texts";
+        textNode.className="textInLi";
+        textNode.ondblclick=function(){
           this.setAttribute("contenteditable","true");
         };
-        childNode.onkeypress=function(){
+        textNode.onkeypress=function(){
           if(this.onkeypress.arguments[0].charCode == 13){
             this.setAttribute("contenteditable","false");
           } 
         }
-        childNode.className="ui-widget-content";
-
-        parentNode.appendChild(childNode);
+        liLiNode.className="ui-widget-content";
+        liLiNode.appendChild(textNode);
+        parentNode.appendChild(liLiNode);
 }
 
 $(function() {

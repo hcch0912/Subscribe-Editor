@@ -39,20 +39,20 @@ html, body {
     overflow: scroll;
 }
 
-.scroll p{
-    background-color: white;
-	text-align: center;
-	margin: 3px;
-	border-style: ridge;
+.textInLi{
+	margin-top: 0;
+	margin-bottom: 0;
+	width:180px;
+    word-wrap: break-word;
+    overflow: scroll;
+    font-size: 15px;
 }
 
-.scroll p:active{
-    background-color: white;
-	text-align: center;
-	margin: 3px;
-	border-style: ridge;
-	border-color: blue;
+.closeButton{
+	margin-top: 0;
+	margin-right: 0;
 }
+
 
 .banner{
 	background-color:black;
