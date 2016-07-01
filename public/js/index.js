@@ -75,7 +75,7 @@ function drawTimeLine(videoNode){
 }
 
 function textProcess(file){
-    var parentNode=document.getElementById("contentDiv");
+    var parentNode=document.getElementById("selectable");
     if(parentNode.hasChildNodes()){
       parentNode.innerHTML="";
     }
@@ -83,9 +83,9 @@ function textProcess(file){
     var i=0;
     for(;i<splited.length;i++){
        
-        var childNode=document.createElement("p");
+        var childNode=document.createElement("li");
         childNode.innerHTML=splited[i];
-        var source;
+  
         childNode.ondblclick=function(){
           this.setAttribute("contenteditable","true");
         };
@@ -94,9 +94,7 @@ function textProcess(file){
             this.setAttribute("contenteditable","false");
           } 
         }
-        childNode.onclick=function(){
-          this.style.borderColor="blue";
-        }
+        childNode.className="ui-widget-content";
         parentNode.appendChild(childNode);
     }
 
@@ -104,11 +102,11 @@ function textProcess(file){
 }
 
 function addTextElement(){
-        var parentNode=document.getElementById("contentDiv");
-        var childNode=document.createElement("p");
+        var parentNode=document.getElementById("selectable");
+        var childNode=document.createElement("li");
 
         childNode.innerHTML="please input texts";
-                var source;
+        
         childNode.ondblclick=function(){
           this.setAttribute("contenteditable","true");
         };
@@ -117,6 +115,12 @@ function addTextElement(){
             this.setAttribute("contenteditable","false");
           } 
         }
+        childNode.className="ui-widget-content";
 
         parentNode.appendChild(childNode);
 }
+
+$(function() {
+    $( "#selectable" ).selectable();
+  });
+
