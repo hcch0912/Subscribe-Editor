@@ -5,7 +5,7 @@
     </ul>
     <ul>
 	    <li>
-	    	<b>+Video</b>
+	    	<b></b>
 	    </li>
     </ul>
     <ul>
@@ -25,41 +25,25 @@
   </div>
 
 <div class="container">
-	<div class="left-container">
-		<video  controls>
-			  <source src="movie.mp4"  type="video/mp4">
-			  <track kind="subtitles" label="English" src="simple.vtt" srclang="en" default>
-			  <track src="subtitles.vtt" label="French" kind="subtitles" srclang="fr" >
-			  <track src="subtitles.vtt" label="Germany" kind="subtitles" srclang="fr" >
-		</video>
+	<div class="left-container" id="video-container">
+		<div class="banner" id="banner-video">
+			<input id="uploadVideo" type="file"  accept="video/*" hidden>
+			<a id="addVideo" onclick="addVideo()">Open Video</a> 
+		</div>
+		<video id="video" controls ontimeupdate="updateTime(this)"" >
+		</video> 
 	</div>
 	
 	<div class="right-container">
 		<div class="banner">
 			<input id="uploadFile" type="file" hidden>
 			<a id="addText" onclick="addText()" >Upload Text</a>
-			
 		</div>
-		<div id="contentDiv" class="scroll">
-		
-			<p id="content">
-					ddgs<br>
-					ddgs<br>
-					ddgs<br>
-					ddgs<br>
-					ddgs<br>
-					ddgs<br>
-					ddgs<br>
-					ddgs<br>
-					ddgs<br>
-					ddgs<br>
-					ddgs<br>
-					ddgs<br>
-					ddgs<br>
-					ddgs<br>
-					ddgs<br>
-					ddgs<br>
-					ddgs<br>
+		<div id="contentDiv"  class="scroll">
+			<p class="textElement" >
+				please input text by<br>
+				upload file<br>
+				or input texts
 			</p>
 		</div>
 	</div>
@@ -69,11 +53,45 @@
 
 <div id="row2" class="container">
 	<div id="timeLine" class="left-container">
-		time 
+		<p class="info" id="showTime">
+		</p>
+		<p class="info">
+			Keep clicking the text element during the period you want to add subtitle  in 
+		</p>
 	</div>
 	
 	<div id="setting" class="right-container">
-		setting
+		Setting
+		<br>
+		<br>
+		<a>Color</a>
+		<select id="color" >
+		  <option value="red">red</option>
+		  <option value="black">black</option>
+		  <option value="white">white</option>
+		  <option value="yellow">yellow</option>
+		</select>
+		<a>Font</a>
+		<select id="font" >
+		  <option value="Arial">Arial</option>
+		  <option value="Bold">Bold</option>
+		</select>
+		
+		<a>Size</a>
+		<select id="size" >
+		  <option value="14">14</option>
+		  <option value="12">12</option>
+		  <option value="10">10</option>
+		  <option value="8">8</option>
+		</select>
+		<a>Position</a>
+		<select id="position" >
+		  <option value="bottom">bottom</option>
+		  <option value="top">top</option>
+		  <option value="left">left</option>
+		  <option value="right">right</option>
+		</select>
+
 	</div>
 
 </div>
